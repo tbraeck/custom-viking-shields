@@ -1,0 +1,50 @@
+.order-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .order-form h2 {
+    font-size: 2rem;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 20px;
+  }
+  
+  .order-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .order-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .order-form input, .order-form select, .order-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .order-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f5a623;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .order-form button:hover {
+    background-color: #d4881e;
+  }
+  

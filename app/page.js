@@ -1,22 +1,31 @@
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+'use client'
+
+
+// File: App.js
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import About from './components/About';
+import './components/App.css';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import Gallery from './components/Gallery';
 import Header from './components/Header';
-import Home from './components/Home';
 import OrderForm from './components/OrderForm';
 
 function App() {
   return (
     <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/order" component={OrderForm} />
-        <Route path="/about" component={About} />
-        <Route path="/gallery" component={Gallery} />
-        <Route path="/contact" component={Contact} />
-      </Switch>
+      <div className="app">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<OrderForm />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
