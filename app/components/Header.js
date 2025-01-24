@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
@@ -7,8 +8,16 @@ function Header() {
   return (
     <header className="header">
       <div className="header-background">
-        <div className="logo">
-          <img src="/assets/logo.png" alt="Viking Shields & Weapons Logo" />
+      <div className="logo">
+          <Link to="/">
+            <Image
+              src="/assets/logo.png"
+              width={100}
+              height={100}
+              alt="Viking Shields & Weapons Logo"
+              className="logo-image"
+            />
+          </Link>
         </div>
         <div className="header-content">
           <h1 className="title">Viking Shields & Weapons</h1>
