@@ -1,11 +1,22 @@
+/* Footer Styling */
 .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9rem;
-  }
-  
-  .footer p {
-    margin: 0;
-  }
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+/* Page Wrapper Styling */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full-page height */
+}
+
+/* Main Content Styling */
+.page-content {
+  flex: 1; /* Pushes the footer to the bottom when content is less */
+}
