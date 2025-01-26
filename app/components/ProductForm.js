@@ -44,7 +44,7 @@ const ProductForm = () => {
           onChange={handleChange}
           className="w-full mt-1 p-2 border rounded"
         >
-          <option value="small">Small (12 Inch)</option>
+          <option value="small">Small (12)</option>
           <option value="medium">Medium (18 Inch)</option>
           <option value="large">Large (24 Inch)</option>
         </select>
