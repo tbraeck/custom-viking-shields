@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import About from './components/About';
@@ -16,19 +16,23 @@ function App() {
       <div className="app">
         <Header />
         <main className="main-content">
-  <div className='symbols'>
-    <Symbols />
-  </div>
-  <div>
-    <Routes>
-      <Route path="/" element={<OrderForm />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/gallery" element={<Gallery />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
-  </div>
-</main>
-
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="order-page">
+                  <div className='symbols'>
+                    <Symbols />
+                  </div>
+                  <OrderForm />
+                </div>
+              }
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </Router>
@@ -36,4 +40,3 @@ function App() {
 }
 
 export default App;
-
