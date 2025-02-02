@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import './OrderForm.css';
 
@@ -61,6 +63,10 @@ function OrderForm() {
         <h1>Customize Your Viking Shield</h1>
         <form>
           <label>
+            Child&apos;s Name:
+            <input type="text" name="childName" value={formData.childName} onChange={handleChange} />
+          </label>
+          <label>
             Shield Size:
             <select name="shieldSize" value={formData.shieldSize} onChange={handleChange}>
               <option value="">Select Size</option>
@@ -93,7 +99,7 @@ function OrderForm() {
               <option value="horse">Odin&apos;s Horse</option>
               <option value="sailingShip">Long Ship</option>
               <option value="axe">Viking Axe</option>
-            </select>   
+            </select>
           </label>
           <label>
             Symbol Color:
@@ -105,6 +111,37 @@ function OrderForm() {
               <option value="Black">Black</option>
               <option value="Red">Red</option>
               <option value="Blue">Blue</option>
+            </select>
+          </label>
+          <label>
+            Accent Color:
+            <select name="accent_color" value={formData.accent_color} onChange={handleChange}>
+              <option value="">Select Accent Color</option>
+              <option value="Gold">Gold</option>
+              <option value="Silver">Silver</option>
+              <option value="Bronze">Bronze</option>
+              <option value="Black">Black</option>
+              <option value="Red">Red</option>
+            </select>
+          </label>
+          <label>
+            Accent Shape:
+            <select name="accent_shape" value={formData.accent_shape} onChange={handleChange}>
+              <option value="">Select Accent Shape</option>
+              <option value="Circle">Circle</option>
+              <option value="Square">Square</option>
+              <option value="Triangle">Triangle</option>
+              <option value="Star">Star</option>
+            </select>
+          </label>
+          <label>
+            Weapon Choice:
+            <select name="weapon" value={formData.weapon} onChange={handleChange}>
+              <option value="">Select Weapon</option>
+              <option value="Sword">Sword</option>
+              <option value="Battle_Axe">Battle Axe</option>
+              <option value="Gotthard_Axe">Gotthard Axe</option>
+              <option value="Dagger">Dagger</option>
             </select>
           </label>
         </form>
