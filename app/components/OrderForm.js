@@ -141,125 +141,109 @@ function OrderForm() {
           </label>
         </form>
       </div>
+      <div className="shield-preview">
+  <h2>Shield Preview</h2>
+  <svg
+    width={shieldSizes[formData.shieldSize] || 150}
+    height={shieldSizes[formData.shieldSize] || 150}
+    viewBox="0 0 200 200"
+  >
+    {/* Shield Base */}
+    <circle cx="100" cy="100" r="90" fill={formData.color || 'silver'} stroke="black" strokeWidth="5" />
 
-      {/* Shield Preview and Tally */}
-      <div className="preview-container">
-        <h2>Shield Preview</h2>
-        <svg
-  width={shieldSizes[formData.shieldSize] || 150}
-  height={shieldSizes[formData.shieldSize] || 150}
-  viewBox="0 0 200 200"
->
-  {/* Shield Base */}
-  <circle
-    cx="100"
-    cy="100"
-    r="90"
-    fill={formData.color || 'silver'}
-    stroke="black"
-    strokeWidth="5"
-  />
-  <circle
-    cx="98"
-    cy="98"
-    r="92"
-    fill={formData.color || 'gray'}
-    stroke="black"
-    strokeWidth="5"
-  />
-
-  {/* Accent Shape */}
-  {formData.accent_shape && (
-    <>
-      {formData.accent_shape === 'cross' && (
-        <rect
-          x="90"
-          y="50"
-          width="20"
-          height="100"
-          fill={formData.accent_color || 'gold'}
-        />
-      )}
-      {formData.accent_shape === 'Spiral' && (
-        <path
-          d="M100,100 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0"
-          stroke={formData.accent_color || 'gold'}
-          strokeWidth="4"
-          fill="none"
-        />
-      )}
-      {formData.accent_shape === 'Rings' && (
-        <>
-          <circle
-            cx="100"
-            cy="100"
-            r="30"
-            stroke={formData.accent_color || 'gold'}
-            strokeWidth="4"
+    {/* Accent Shape */}
+    {formData.accent_shape && (
+      <>
+        {formData.accent_shape === "cross" && (
+          <>
+            <rect x="95" y="40" width="10" height="120" fill={formData.accent_color || "black"} />
+            <rect x="40" y="95" width="120" height="10" fill={formData.accent_color || "black"} />
+          </>
+        )}
+        {formData.accent_shape === "Spiral" && (
+          <path
+            d="M100,100 C130,70 170,70 130,100 C100,130 70,170 100,130"
             fill="none"
+            stroke={formData.accent_color || "black"}
+            strokeWidth="10"
           />
-          <circle
-            cx="100"
-            cy="100"
-            r="50"
-            stroke={formData.accent_color || 'gold'}
-            strokeWidth="4"
-            fill="none"
+        )}
+        {formData.accent_shape === "Rings" && (
+          <>
+            <circle cx="100" cy="100" r="40" fill="none" stroke={formData.accent_color || "black"} strokeWidth="10" />
+            <circle cx="100" cy="100" r="20" fill="none" stroke={formData.accent_color || "black"} strokeWidth="10" />
+          </>
+        )}
+        {formData.accent_shape === "Diagonal Pie" && (
+          <path
+            d="M100,100 L200,100 A100,100 0 0,0 100,0 Z"
+            fill={formData.accent_color || "black"}
           />
-        </>
-      )}
-      {formData.accent_shape === 'Diagonal Pie' && (
-        <path
-          d="M100,100 L100,10 A90,90 0 0,1 190,100 Z"
-          fill={formData.accent_color || 'gold'}
-        />
-      )}
-      {formData.accent_shape === 'Six Pie Pieces' && (
-        <>
-          {[...Array(6)].map((_, i) => (
-            <path
-              key={i}
-              d={`M100,100 L${100 + 90 * Math.cos((Math.PI / 3) * i)},${100 + 90 * Math.sin((Math.PI / 3) * i)} A90,90 0 0,1 ${100 + 90 * Math.cos((Math.PI / 3) * (i + 1))},${100 + 90 * Math.sin((Math.PI / 3) * (i + 1))} Z`}
-              fill={i % 2 === 0 ? (formData.accent_color || 'gold') : 'none'}
-            />
-          ))}
-        </>
-      )}
-      {formData.accent_shape === 'Custom Viking Rune' && (
-        <text
-          x="100"
-          y="110"
-          textAnchor="middle"
-          fontSize="30"
-          fill={formData.accent_color || 'gold'}
-        >
-          ᛉ
-        </text>
-      )}
-    </>
-  )}
+        )}
+        {formData.accent_shape === "Six Pie Pieces" && (
+          <>
+            {[0, 60, 120, 180, 240, 300].map((angle) => (
+              <path
+                key={angle}
+                d={`M100,100 L${100 + 90 * Math.cos((angle * Math.PI) / 180)},${100 + 90 * Math.sin((angle * Math.PI) / 180)} A90,90 0 0,1 100,100`}
+                fill={formData.accent_color || "black"}
+              />
+            ))}
+          </>
+        )}
+      </>
+    )}
 
-  {/* Shield Symbol */}
-  {formData.shieldSymbol && (
-    <text
-      x="100"
-      y="110"
-      textAnchor="middle"
-      fontSize="20"
-      fill={formData.accent_color || 'white'}
-    >
-      {formData.shieldSymbol}
-    </text>
-  )}
-</svg>
+    {/* Shield Symbol */}
+    {formData.shieldSymbol && (
+      <text x="100" y="110" textAnchor="middle" fontSize="20" fill={formData.symbolColor || 'white'}>
+        {formData.shieldSymbol}
+      </text>
+    )}
+  </svg>
+</div>
 
 
-        {/* Tally */}
-        <div className="tally">
-          <h3>Total Cost: ${tally}</h3>
-        </div>
-      </div>
-    </div>
+  
+
+  <div className="weapon-preview">
+    <h2>Weapon Preview</h2>
+    {formData.weapon && (
+      <svg width="150" height="150" viewBox="0 0 200 200">
+        {formData.weapon === "Sword" && (
+          <>
+            <rect x="90" y="30" width="20" height="100" fill="gray" />
+            <rect x="80" y="120" width="40" height="10" fill="gold" />
+          </>
+        )}
+        {formData.weapon === "Battle_Axe" && (
+          <>
+            <rect x="95" y="30" width="10" height="100" fill="brown" />
+            <circle cx="100" cy="30" r="25" fill="silver" />
+          </>
+        )}
+        {formData.weapon === "Gotthard_Axe" && (
+          <>
+            <rect x="95" y="30" width="10" height="100" fill="brown" />
+            <path d="M100,30 Q120,60 100,90" stroke="silver" strokeWidth="10" fill="none" />
+          </>
+        )}
+        {formData.weapon === "Dagger" && (
+          <>
+            <rect x="95" y="50" width="10" height="50" fill="gray" />
+            <rect x="85" y="95" width="30" height="10" fill="gold" />
+          </>
+        )}
+      </svg>
+    )}
+  </div>
+
+  {/* Tally */}
+  <div className="tally">
+    <h3>Total Cost: ${tally}</h3>
+  </div>
+</div>
+
   );
 }
 
