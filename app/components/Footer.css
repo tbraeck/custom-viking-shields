@@ -1,13 +1,17 @@
 /* Footer Styling */
+/* Footer Styling */
 .footer {
   background-color: #f4f4f4;
   text-align: center;
   padding: 1rem 0;
   border-top: 1px solid #ccc;
   width: 100%;
-  position: relative;
+  position: sticky; /* Sticks the footer to the bottom */
   bottom: 0;
+  margin-top: auto; /* Pushes it down when content is short */
+  
 }
+
 
 /* Page Wrapper Styling */
 .page-wrapper {
